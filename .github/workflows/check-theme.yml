@@ -26,6 +26,7 @@ jobs:
         run: |
           php -l index.php
           php -l functions.php
+          php -l github-updates.php
       - name: Verify assets and package theme
         run: |
           python3 scripts/check-assets.py
@@ -34,4 +35,13 @@ jobs:
         with:
           name: makhan-wordpress-theme
           path: build/makhan-theme.zip
+      - name: Publish tested theme release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(sed -n 's/^Version: //p' style.css)
+          if ! gh release view "v$version" >/dev/null 2>&1; then
+            gh release create "v$version" build/makhan-theme.zip --target "$(git rev-parse HEAD)" --title "M.A. Khan WordPress theme v$version" --notes 'Approved website theme. PHP syntax, media hashes and asset references checked before packaging.'
+          fi
 

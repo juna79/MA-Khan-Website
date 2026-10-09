@@ -1,5 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
+require_once get_template_directory() . '/github-updates.php';
 add_action('rest_api_init', function () {
     register_rest_route('makhan/v1', '/enquiry', array(
         'methods' => 'POST',
