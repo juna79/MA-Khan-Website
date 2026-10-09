@@ -1,0 +1,37 @@
+name: Check and package theme
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  package:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble approved films
+        run: python3 scripts/assemble-media.py
+      - name: Store assembled films
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git add assets
+          if test -d .media-parts; then git add -u .media-parts; fi
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Assemble approved films without changing content'
+            git push
+          fi
+      - name: Check PHP syntax
+        run: |
+          php -l index.php
+          php -l functions.php
+      - name: Verify assets and package theme
+        run: |
+          python3 scripts/check-assets.py
+          python3 scripts/package-theme.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: makhan-wordpress-theme
+          path: build/makhan-theme.zip
+
