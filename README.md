@@ -1,6 +1,6 @@
 # M.A. Khan Insurance Brokers
 
-Approved website: V27, 9 October 2026. Both approved films are included at 1080p. The layout, content, page navigation, logos and photographs are preserved from the approved HTML.
+Approved website: V28. All four films (Who we are, What we offer, Beyond insurance, When it matters most) are included at 1080p. The layout, content, page navigation, logos and photographs are preserved from the approved HTML.
 
 ## Preview
 
@@ -8,7 +8,7 @@ Serve this directory with `python3 -m http.server 8000`, then open `http://local
 
 ## WordPress installation
 
-Run `python3 scripts/package-theme.py`. Install `build/makhan-theme.zip` through Appearance → Themes → Add New → Upload Theme on a staging WordPress installation. The theme retains the approved hash-based page navigation; content is maintained in GitHub rather than the WordPress block editor. Upload limits may require installing the theme folder through the hosting file manager or SFTP because the videos make the package around 78 MB.
+Run `python3 scripts/package-theme.py`. Install `build/makhan-theme.zip` through Appearance → Themes → Add New → Upload Theme on a staging WordPress installation. The theme retains the approved hash-based page navigation; content is maintained in GitHub rather than the WordPress block editor. Upload limits may require installing the theme folder through the hosting file manager or SFTP because the four videos make the package around 150 MB.
 
 The active theme checks this public repository's tested releases using WordPress's native theme update mechanism. Future changes require a new semantic Version in style.css (for example, 1.0.1); the GitHub build checks the files and publishes a ZIP release. WordPress can then install that release through its Updates screen. This is a versioned update connection, not an immediate push-to-production deployment. It requires no hosting credentials or GitHub token on the website. Do not overwrite WordPress core, wp-config.php or wp-content/uploads. Deploy this theme only to wp-content/themes/makhan.
 

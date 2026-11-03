@@ -9,5 +9,5 @@ for name, expected in manifest.items():
 for page in ('index.html', 'site.html'):
     for path in re.findall(r'assets/[a-f0-9]+\.(?:jpg|png|svg|mp4)', (root / page).read_text()):
         assert path in manifest, path
-assert sum(v['type'] == 'video/mp4' for v in manifest.values()) == 2
-print('All media hashes and page references verified; two approved films present.')
+assert sum(v['type'] == 'video/mp4' for v in manifest.values()) == 4
+print('All media hashes and page references verified; four approved films present.')

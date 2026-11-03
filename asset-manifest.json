@@ -173,5 +173,25 @@
     "sha256": "6efe9e1a5b81dc4c7b07d337652257aa0dc11bf4616c00be73431a9f271b569b",
     "bytes": 35725709,
     "type": "video/mp4"
+  },
+  "assets/8f8d0cd941cd04992123.mp4": {
+    "sha256": "8f8d0cd941cd049921232740adaaf4900a623aaa61b00587b96d8a530da92a1b",
+    "bytes": 32424607,
+    "type": "video/mp4"
+  },
+  "assets/9b10328c5a19e1421dc8.mp4": {
+    "sha256": "9b10328c5a19e1421dc8e2a7582ea0a678cfe83b9ca68c48c6f9b75f0b66e73b",
+    "bytes": 31994312,
+    "type": "video/mp4"
+  },
+  "assets/6eaa90724f353f47a19d.jpg": {
+    "sha256": "6eaa90724f353f47a19d2787644a1921bff5a418bd28f430a1854693563f7635",
+    "bytes": 151190,
+    "type": "image/jpeg"
+  },
+  "assets/d8c79358761ca58f60ea.jpg": {
+    "sha256": "d8c79358761ca58f60ea69c1fd4f7542261dcca17e2b21a732570b5f641c1ba7",
+    "bytes": 81479,
+    "type": "image/jpeg"
   }
 }
